@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrument Cluster Microfrontend</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* The cluster scales perfectly inside its parent */
+        .dashboard-container {
+            width: 100%;
+            max-width: 1400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- The Microfrontend! -->
+        <instrument-cluster base-path="./assets"></instrument-cluster>
+    </div>
+
+    <!-- Load the web component -->
+    <script src="instrument-cluster.js"></script>
+
+</body>
+
+</html>
