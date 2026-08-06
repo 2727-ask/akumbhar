@@ -1258,9 +1258,10 @@ class InstrumentCluster extends HTMLElement {
     }
 
     initLogic() {
+        const root = this.shadowRoot;
         
         function drawDial(containerId, maxVal, step, startAngle, endAngle) {
-            const container = this.shadowRoot.getElementById(containerId);
+            const container = root.getElementById(containerId);
             const steps = maxVal / step;
             const totalRange = endAngle - startAngle;
             const angleStep = totalRange / steps;
@@ -1299,16 +1300,16 @@ class InstrumentCluster extends HTMLElement {
         drawDial('tacho-ticks', 8, 1, -135, 135);
 
         // --- Car Simulation Logic ---
-        const speedNeedle = this.shadowRoot.getElementById('speed-needle');
-        const tachoNeedle = this.shadowRoot.getElementById('tacho-needle');
-        const gearIndicator = this.shadowRoot.getElementById('gear-indicator');
-        const odometerEl = this.shadowRoot.getElementById('odometer');
-        const leftTurn = this.shadowRoot.getElementById('left-turn');
-        const rightTurn = this.shadowRoot.getElementById('right-turn');
-        const digitalSpeedValEl = this.shadowRoot.getElementById('digital-speed-val');
-        const leftLanePath = this.shadowRoot.getElementById('left-lane-path');
-        const rightLanePath = this.shadowRoot.getElementById('right-lane-path');
-        const laneCarImg = this.shadowRoot.getElementById('lane-car-img');
+        const speedNeedle = root.getElementById('speed-needle');
+        const tachoNeedle = root.getElementById('tacho-needle');
+        const gearIndicator = root.getElementById('gear-indicator');
+        const odometerEl = root.getElementById('odometer');
+        const leftTurn = root.getElementById('left-turn');
+        const rightTurn = root.getElementById('right-turn');
+        const digitalSpeedValEl = root.getElementById('digital-speed-val');
+        const leftLanePath = root.getElementById('left-lane-path');
+        const rightLanePath = root.getElementById('right-lane-path');
+        const laneCarImg = root.getElementById('lane-car-img');
 
         let currentSpeed = 65; // Start at a moving speed
         let targetSpeed = 65;
@@ -1439,11 +1440,11 @@ class InstrumentCluster extends HTMLElement {
         scheduleNextSpeedChange();
 
         // Turn Indicators Logic
-        const expView = this.shadowRoot.getElementById('experience-view');
-        const speedView = this.shadowRoot.getElementById('speedometer-view');
+        const expView = root.getElementById('experience-view');
+        const speedView = root.getElementById('speedometer-view');
 
-        const expViewRight = this.shadowRoot.getElementById('experience-view-right');
-        const tachoView = this.shadowRoot.getElementById('tachometer-view');
+        const expViewRight = root.getElementById('experience-view-right');
+        const tachoView = root.getElementById('tachometer-view');
 
         function updateLeftGaugeView() {
             if (leftTurn.classList.contains('blinking')) {
@@ -1508,7 +1509,7 @@ class InstrumentCluster extends HTMLElement {
         });
 
         // Headlights Logic
-        const headlightsIcon = this.shadowRoot.getElementById('headlights-icon');
+        const headlightsIcon = root.getElementById('headlights-icon');
         let headlightsOn = false;
         headlightsIcon.addEventListener('click', () => {
             headlightsOn = !headlightsOn;
@@ -1518,7 +1519,7 @@ class InstrumentCluster extends HTMLElement {
         });
 
         // Drive Mode Logic
-        const driveModeBtn = this.shadowRoot.getElementById('drive-mode-btn');
+        const driveModeBtn = root.getElementById('drive-mode-btn');
         let isSportMode = false;
 
         driveModeBtn.addEventListener('click', () => {
@@ -1535,12 +1536,12 @@ class InstrumentCluster extends HTMLElement {
         });
 
         // Mode Toggle Logic
-        const modeBtn = this.shadowRoot.getElementById('mode-toggle-btn');
-        const navMap = this.shadowRoot.querySelector('.nav-map');
-        const digitalSpeedView = this.shadowRoot.getElementById('digital-speed-view');
-        const laneAssistView = this.shadowRoot.getElementById('lane-assist-view');
+        const modeBtn = root.getElementById('mode-toggle-btn');
+        const navMap = root.querySelector('.nav-map');
+        const digitalSpeedView = root.getElementById('digital-speed-view');
+        const laneAssistView = root.getElementById('lane-assist-view');
 
-        const nowPlayingView = this.shadowRoot.getElementById('now-playing-view');
+        const nowPlayingView = root.getElementById('now-playing-view');
 
         let currentMode = 1; // 0: Nav, 1: Speed, 2: Lane, 3: Music
 
