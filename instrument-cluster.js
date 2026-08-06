@@ -21,15 +21,10 @@ class InstrumentCluster extends HTMLElement {
     getCss() {
         return `
         /* Reset and basic body setup */
-        :host { display: block; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        :host { 
+            display: block; 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            width: 100%;
         }
 
         /* Container for responsive scaling */
